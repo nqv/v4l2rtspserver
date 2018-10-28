@@ -99,7 +99,7 @@ RTPSink*  BaseServerMediaSubsession::createSink(UsageEnvironment& env, Groupsock
 		getline(is, sampleRate, '/');	
 		std::string channels("2");
 		getline(is, channels);	
-		videoSink = SimpleRTPSink::createNew(env, rtpGroupsock,rtpPayloadTypeIfDynamic, std::stoi(sampleRate), "audio", "L16", std::stoi(channels), True, False); 
+		videoSink = SimpleRTPSink::createNew(env, rtpGroupsock,rtpPayloadTypeIfDynamic, atoi(sampleRate.c_str()), "audio", "L16", atoi(channels.c_str()), True, False);
 	}
 	return videoSink;
 }
